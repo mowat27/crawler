@@ -1,6 +1,7 @@
-#!/usr/bin/env jruby
+#!/usr/bin/env ruby
 
 require 'sinatra'
+require 'sinatra/reloader'
 
 get "/" do
   result =<<EOS
@@ -26,6 +27,7 @@ get "/page2" do
 <p>hello from page 2</p>
 <a href = 'http://localhost:4567/page1'>go to page 1 (circular reference)</a>
 <a href = 'http://localhost:4567/page3'>go to page 3</a>
+<a href = 'http://localhost:4567/page99'>go to page 99 (not found)</a>
 EOS
 end
 
