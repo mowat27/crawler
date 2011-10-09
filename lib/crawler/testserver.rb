@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-
+puts File.expand_path(File.dirname(__FILE__))
+$: << File.expand_path(File.dirname(__FILE__))
+require 'crawler'
 require 'sinatra'
 require 'sinatra/reloader'
 
@@ -39,4 +41,10 @@ get "/page3" do
   result =<<EOS
 <p>hello from page 3</p>
 EOS
+end
+
+get "/crawl" do
+  url = params["url"] || "http://localhost:4567"
+  depth = params["url"].to_i || 2
+  crawl(url,depth).inspect
 end
