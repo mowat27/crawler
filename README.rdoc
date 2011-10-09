@@ -7,3 +7,7 @@ From the command line...
   ruby crawler.rb http://github.com 2
 
 The first argument is the url to start crawling from.  The second argument is maximum depth to which the script should follow links - after all, we don't want to crawl the entire Web!
+
+Note that you need to have the test site running to run the specs.  You can do this by running
+
+  lib/crawler/testserver.rb
