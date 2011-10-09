@@ -17,17 +17,21 @@ end
 get "/page1" do
   result =<<EOS
 <p>hello from page 1</p>
-<a href = 'http://localhost:4567/page1'>go to page 1 (self reference)</a>
-<a href = 'http://localhost:4567/page2'>go to page 2 (circular reference)</a>
+<ul>
+  <li><a href = 'http://localhost:4567/page1'>go to page 1 (self reference)</a></li>
+  <li><a href = 'http://localhost:4567/page2'>go to page 2 (circular reference)</a></li>
+</ul>
 EOS
 end
 
 get "/page2" do
   result =<<EOS
 <p>hello from page 2</p>
-<a href = 'http://localhost:4567/page1'>go to page 1 (circular reference)</a>
-<a href = 'http://localhost:4567/page3'>go to page 3</a>
-<a href = 'http://localhost:4567/page99'>go to page 99 (not found)</a>
+<ul>
+  <li><a href = 'http://localhost:4567/page1'>go to page 1 (circular reference)</a></li>
+  <li><a href = 'http://localhost:4567/page3'>go to page 3</a></li>
+  <li><a href = 'http://localhost:4567/page99'>go to page 99 (not found)</a></li>
+</ul>
 EOS
 end
 
